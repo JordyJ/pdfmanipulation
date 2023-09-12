@@ -206,23 +206,21 @@ def process_data(
             elif action == "Frame":
                 matches_found = frame_matching_data(page, matched_values)
             elif action in (
-                "Highlight",
                 "Squiggly",
                 "FreeText",
                 "Underline",
                 "Strikeout",
             ):
                 matches_found = highlight_matching_data(
-                    page, matched_values, action, color=color
+                    page, matched_values, action, color="black"
                 )
-            else:
+            elif action == "Highlight":
                 matches_found = highlight_matching_data(
                     page, matched_values, "Highlight", color=color
                 )
             total_matches += matches_found
     print(
-        f"{total_matches} Match(es) Found of Search String "
-        // +f"'{search_str}' In Input File: {input_file}"
+        f"{total_matches} Match(es) Found of Search String {search_str} In Input File: {input_file}"
     )
     # Save to output
     pdfDoc.save(output_buffer)
@@ -512,7 +510,7 @@ def edit_pdfs(args):
 
         df.to_csv(output_name, index=False)
 
-        return output
+        return df
 
 
 if __name__ == "__main__":

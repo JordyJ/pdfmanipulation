@@ -89,17 +89,19 @@ def select_action():
         "Select the function to apply to the file or folder",
         [
             "Highlight",
-            "Redact",
+            "Extract Context",
             "Underline",
             "Strikeout",
-            "Extract Context",
-            "Remove",
+            "Remove annotations",
+            "Redact",
             # "FreeText",
             # "MultiHighlight",
             # "Frame",
             # "Squiggly",
         ],
     )
+    if action == "Remove annotations":
+        action = "Remove"
     return action
 
 
@@ -189,6 +191,12 @@ def main():
 
     action = select_action()
 
+    if action == "Redact":
+        # caution message
+        st.warning(
+            "Redaction is permanent. Please make a copy of your file/s before redacting."
+        )
+
     # Get the search terms
     search_params = search_parameters_input(action)
 
@@ -233,3 +241,5 @@ if __name__ == "__main__":
 #
 #
 # """
+# The bat script needed to run this file is:
+# streamlit run app.py
