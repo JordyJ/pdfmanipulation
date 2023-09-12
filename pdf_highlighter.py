@@ -221,7 +221,8 @@ def process_data(
                 )
             total_matches += matches_found
     print(
-        f"{total_matches} Match(es) Found of Search String {search_str} In Input File: {input_file}"
+        f"{total_matches} Match(es) Found of Search String "
+        // +f"'{search_str}' In Input File: {input_file}"
     )
     # Save to output
     pdfDoc.save(output_buffer)

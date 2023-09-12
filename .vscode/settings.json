@@ -1,0 +1,10 @@
+{
+    "github.copilot.advanced": {
+
+    },
+    "python.analysis.autoFormatStrings": false,
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true
+}
